@@ -45,7 +45,7 @@ nav {
     font-family: var(--mono);
 }
 
-.navlinks {
+.navlinks, .footer-links {
     list-style-type: none;
     display: flex;  
      /*will wrap when the vw decreases */
@@ -80,13 +80,13 @@ nav {
 }
 
 /* Selector that allows us to select elements that include a substring that we specify */
-nav [class*='fa'] {
+nav [class*='fa'], footer [class*='fa'] {
     color: var(--aqua);
     font-size: 150%;
     transition: color 0.4s ease;
 }
 
-nav [class*='fa']:hover {
+nav [class*='fa']:hover, footer [class*='fa']:hover {
     color: var(--hotmag)
 }
 
@@ -159,6 +159,11 @@ a:hover {
 #contact article p:last-child {
     margin-top: 3rem;
   }
+
+/* footer, other styles added in nav section */
+footer p {
+    text-align: center;
+}
 
 /* Responsive */
 
