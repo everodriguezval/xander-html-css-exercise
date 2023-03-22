@@ -6,7 +6,7 @@
   --black: #171321;
   --dkblue: #0d314b;
   --plum: #4b0d49;
-  --hotmag: #ff17e4;
+  --hotmag: #fa42e4;
   --magenta: #e310cb;
   --aqua: #86fbfb;
   --white: #f7f8fa;
@@ -40,10 +40,78 @@ h1, h2, h3 {
     margin: 0;
 }
 
+/* Navbar section */
+nav {
+    font-family: var(--mono);
+}
+
+.navlinks {
+    list-style-type: none;
+    display: flex;  
+     /*will wrap when the vw decreases */
+    flex-flow: row wrap; 
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    margin: 0;
+}
+
+.navlinks li a {
+    text-decoration: none;
+    transition: color 0.4s ease;
+    color: var(--white);
+    font-size: 1.15rem;
+}
+
+.navlinks li a:hover {
+    color: var(--hotmag);
+}
+
+.navlinks li:first-child a {
+    font-family: var(--sans);
+    font-size: 1.5rem;
+}
+
+/* to place my name at the top (flex-basis: 100% to make an element span the full width of the browser window) and centered */
+.navlinks li:first-child {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+/* Selector that allows us to select elements that include a substring that we specify */
+nav [class*='fa'] {
+    color: var(--aqua);
+    font-size: 150%;
+    transition: color 0.4s ease;
+}
+
+nav [class*='fa']:hover {
+    color: var(--hotmag)
+}
+
+/* We have to chain our class selector with our .navlink li a descendant selector, since we have some styles on there that we want to override. To do that, we need to make this selector more specific, which we can do by chaining a class selector to the descendant selector. */
+.navlinks li a.call-to-action {
+    background-color: var(--magenta);
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: all 0.4s ease;
+}
+/* .call-to-action {
+    background-color: var(--magenta);
+    padding: 0.5rem;
+    border-radius: 5px;
+} */
+
+.navlinks li a.call-to-action:hover {
+    background-color: var(--hotmag);
+    color: var(--white);
+}
+
 /* Intro section */
 a {
     color: var(--magenta);
-    transition: all 0.5s ease;
+    transition: all 0.2s ease;
 }
 
 a:hover {
@@ -79,7 +147,7 @@ a:hover {
 }
 
 #contact article {
-    width: 400px;
+    width: 90vw;
     margin: 0 auto;
     padding: 3rem 0;
 }
@@ -87,3 +155,20 @@ a:hover {
 #contact article a {
     color: var(--aqua);
   }
+
+#contact article p:last-child {
+    margin-top: 3rem;
+  }
+
+/* Responsive */
+
+@media screen and (min-width: 750px) {
+    #contact article {
+        width: 25vw;
+    }
+    .navlinks li:first-child {
+        flex-basis: auto;
+        margin-right: auto;
+        text-align: left;
+    }
+}
