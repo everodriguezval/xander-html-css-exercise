@@ -43,7 +43,7 @@ h1, h2, h3 {
 /* Intro section */
 a {
     color: var(--magenta);
-    transition: all 0.2s ease;
+    transition: all 0.5s ease;
 }
 
 a:hover {
@@ -60,13 +60,30 @@ a:hover {
     line-height: 1.5;
 }
 
-#intro.name {
-    font-size: var(--mono);
+#intro .name {
+    font-family: var(--mono);
 }
 
 .name span {
     font-family: var(--sans);
-    font-size: 4rem;
+    font-size: 3rem;
     color: var(--aqua);
     display: block;
+    font-weight: 600;
 }
+
+/* Contact section */
+#contact {
+    text-align: center;
+    background-color: var(--plum);
+}
+
+#contact article {
+    width: 400px;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+#contact article a {
+    color: var(--aqua);
+  }
