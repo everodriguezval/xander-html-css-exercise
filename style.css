@@ -32,7 +32,9 @@ body {
     font-family: var(--sans);
     background-color: var(--black);
     color: var(--white);
-    font-size: var(--font-size)
+    font-size: var(--font-size);
+    padding: inherit;
+    margin: inherit;
 }
 
 h1,
@@ -46,9 +48,6 @@ h3 {
     height: 2px;
 }
 
-.section-dkblue {
-    background-color: var(--dkblue);
-}
 
 /* Navbar section */
 nav {
@@ -157,29 +156,43 @@ a:hover {
     font-weight: 600;
 }
 
-/* Contact section */
-#contact {
-    text-align: center;
+/* About section */
+.section-plum {
     background-color: var(--plum);
 }
 
+.white-box {
+    background-color: var(--white);
+    border-radius: 7px;
+    padding: 1rem;
+    color: var(--black);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+
 /* Project section */
-#projects {
+.section-dkblue {
+    background-color: var(--dkblue);
+}
+
+#projects, #about {
     padding: 4rem 1rem;
 }
 
 /* We're using calc because we want our line height to be consistent across the page. We added a line-height of 1.5 to our paragraph in the intro section so we're adding it to our bottom margin so our spacing can remain consistent*/
-#projects h2 {
+#projects h2, #about h2 {
     font-size: 2.5rem;
     margin-bottom: calc(2.5rem * 1.5);
 }
 
-#projects h3 {
+#projects h3, #about h3 {
     color: var(--aqua);
     margin-bottom: calc(1.5rem * 1.5);
 }
 
-#projects h4 {
+#projects h4, #about h4 {
     font-size: 1rem;
     font-family: var(--mono);
     margin: 0;
@@ -195,7 +208,7 @@ a:hover {
     margin-bottom: 1.5rem;
 }
 
-#projects ul {
+#projects ul, #about ul {
     list-style-type: none;
     display: flex;
     flex-flow: row wrap;
@@ -206,13 +219,19 @@ a:hover {
     padding: 0;
 }
 
-#projects img {
+#projects img, #about img {
     margin: 2rem 0 4rem 0;
     padding: 1rem;
     border-top: 1px solid var(--aqua);
     border-left: 1px solid var(--aqua);
     border-radius: 14px;
     width: 100%;
+}
+
+/* Contact section */
+#contact {
+    text-align: center;
+    background-color: var(--plum);
 }
 
 #contact article {
@@ -237,7 +256,7 @@ footer p {
 
 /* Responsive */
 @media screen and (min-width: 550px) {
-    #projects article {
+    #projects article, #about article {
         display: grid;
         /* we want to overlap some of the content so we'll add more columns*/
         grid-template-columns: repeat(10, 1fr);
@@ -258,6 +277,20 @@ footer p {
     /* we need to override CSS Grid's default wrapping behaviour which is pushing our content down to a second row because we're using more columns that are set (10) to be able to overlap content*/
     .image, .text {
         grid-row: 1 / 2;
+    }
+
+    .image.reversed {
+        /* order: 2; */
+        grid-column: 5 / 11;
+    }
+
+    .text.reversed {  
+        text-align: left; 
+        grid-column: 1 / 7;
+    }
+
+    #about ul {
+        justify-content: flex-start;
     }
 
     /* we need to overwrite the justify-content property that we set for mobile devices for this list*/
